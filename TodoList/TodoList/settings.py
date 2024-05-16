@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test',
         'USER' : 'kjh',
-        'PASSWORD' : '1234', # 설정한 비밀번호로 적어주면 된다.
+        'PASSWORD' : '1234',
         'HOST' : 'db',
         'PORT' : '3306',
     }
