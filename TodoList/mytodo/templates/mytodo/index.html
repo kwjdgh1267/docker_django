@@ -1,0 +1,22 @@
+<h1>할일 목록</h1>
+{% if todos %}
+<ul>
+    {% for todo in todos %}
+    <li>
+        <strong>할일:</strong> {{ todo.contents }} &nbsp;&nbsp;&nbsp;&nbsp;
+        <strong>생성일:</strong> {{ todo.createdtime }} &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'todolist:delete' todo.id %}">삭제</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>할일이 없습니다.</p>
+{% endif %}
+
+<h2>할일 등록</h2>
+<form action="{% url 'todolist:write' %}" method="post">
+    {% csrf_token %}
+    <label for="newtodo">할일을 등록하세요:</label>
+    <input type="text" id="newtodo" name="newtodo" placeholder="할일을 입력하세요" required>
+    <button type="submit">추가</button>
+</form>
